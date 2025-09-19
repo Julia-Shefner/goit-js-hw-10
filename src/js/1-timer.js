@@ -1,8 +1,8 @@
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const input = document.querySelector('#datetime-picker');
 const options = {
@@ -14,7 +14,7 @@ const options = {
     const selectedDate = selectedDates[0];
     userSelectedDate = selectedDate;
     const dateNow = Date.now();
-    if (selectedDate <= dateNow){
+    if (selectedDate <= dateNow) {
       iziToast.error({
         message: 'Please choose a date in the future',
         position: 'topRight',
@@ -22,17 +22,15 @@ const options = {
         timeout: 2000,
         color: '#ff4e4e',
         messageColor: 'white',
-        iconUrl: '/circle-xmark-solid.svg',
-        iconWidth: 60,
         progressBar: false,
         overlay: false,
       });
-        startBtn.disabled = true;
+      startBtn.disabled = true;
     } else {
-        startBtn.disabled = false;
+      startBtn.disabled = false;
     }
   },
-}; 
+};
 
 const startBtn = document.querySelector('button[data-start]');
 const timerDay = document.querySelector('span[data-days]');
@@ -46,15 +44,14 @@ flatpickr(input, options);
 let userSelectedDate;
 
 class Timer {
-
-  constructor({ onTick }){
+  constructor({ onTick }) {
     this.onTick = onTick;
     this.isActive = false;
     this.intervalId = null;
   }
 
-  start(){
-    if(this.isActive) {
+  start() {
+    if (this.isActive) {
       return;
     }
     this.isActive = true;
@@ -65,7 +62,7 @@ class Timer {
       const time = this.convertMs(deltaTime);
       this.onTick(time);
 
-      if(deltaTime <= 0) {
+      if (deltaTime <= 0) {
         clearInterval(this.intervalId);
         this.isActive = false;
         this.onTick(this.convertMs(0));
@@ -85,25 +82,29 @@ class Timer {
 
     const days = this.addLeadingZero(Math.floor(ms / day));
     const hours = this.addLeadingZero(Math.floor((ms % day) / hour));
-    const minutes = this.addLeadingZero(Math.floor(((ms % day) % hour) / minute));
-    const seconds = this.addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
+    const minutes = this.addLeadingZero(
+      Math.floor(((ms % day) % hour) / minute)
+    );
+    const seconds = this.addLeadingZero(
+      Math.floor((((ms % day) % hour) % minute) / second)
+    );
     return { days, hours, minutes, seconds };
   }
 
-  addLeadingZero(value){
+  addLeadingZero(value) {
     return String(value).padStart(2, '0');
-  };
-};
+  }
+}
 
 const timer = new Timer({
-  onTick: updateClock
+  onTick: updateClock,
 });
 
 startBtn.addEventListener('click', timer.start.bind(timer));
 
-function updateClock ({ days, hours, minutes, seconds }) {
+function updateClock({ days, hours, minutes, seconds }) {
   timerDay.textContent = `${days}`;
   timerHours.textContent = `${hours}`;
   timerMinutes.textContent = `${minutes}`;
   timerSeconds.textContent = `${seconds}`;
-};
+}

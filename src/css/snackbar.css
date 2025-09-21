@@ -1,4 +1,4 @@
-input[name='delay'] {
+/* input[name='delay'] {
   display: block;
   margin-top: 8px;
   margin-bottom: 16px;
@@ -16,7 +16,7 @@ input[name='delay'] {
   padding-left: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-}
+} */
 
 fieldset {
   width: 360px;

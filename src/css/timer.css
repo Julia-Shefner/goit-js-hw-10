@@ -23,7 +23,7 @@
   text-transform: uppercase;
 }
 
-input[type='text'] {
+input[id='datetime-picker'] {
   border: 1px solid #808080;
   border-radius: 4px;
   width: 272px;
@@ -42,7 +42,7 @@ input[type='text'] {
   padding-bottom: 8px;
 }
 
-input[type='text']:hover {
+input[id='datetime-picker']:hover {
   border: 1px solid #000;
 }
 

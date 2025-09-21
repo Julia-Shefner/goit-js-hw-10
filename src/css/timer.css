@@ -23,7 +23,7 @@
   text-transform: uppercase;
 }
 
-input[id='datetime-picker'] {
+/* input[id='datetime-picker'] {
   border: 1px solid #808080;
   border-radius: 4px;
   width: 272px;
@@ -44,7 +44,7 @@ input[id='datetime-picker'] {
 
 input[id='datetime-picker']:hover {
   border: 1px solid #000;
-}
+} */
 
 button[data-start] {
   display: inline-block;

@@ -1,4 +1,4 @@
-/* .timer {
+.timer {
   display: flex;
   justify-content: center;
   gap: 24px;
@@ -70,4 +70,4 @@ button[data-start]:hover {
 button[data-start]:disabled {
   background: #cfcfcf;
   color: #989898;
-} */
+}

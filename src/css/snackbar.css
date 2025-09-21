@@ -1,4 +1,4 @@
-input[type='number'] {
+input[name='delay'] {
   display: block;
   margin-top: 8px;
   margin-bottom: 16px;

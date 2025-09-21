@@ -4,6 +4,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+let userSelectedDate;
+
 const input = document.querySelector('#datetime-picker');
 const options = {
   enableTime: true,
@@ -40,9 +42,6 @@ const timerSeconds = document.querySelector('span[data-seconds]');
 startBtn.disabled = true;
 
 flatpickr(input, options);
-
-let userSelectedDate;
-
 class Timer {
   constructor({ onTick }) {
     this.onTick = onTick;
